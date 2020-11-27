@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "maty.vscode-mocha-sidebar",
+    "njpwerner.autodocstring"
+  ]
+}

@@ -1,0 +1,18 @@
+plugins:
+  '@release-it/conventional-changelog':
+    preset: angular
+    infile: CHANGELOG.md
+
+git:
+  requireCleanWorkingDir: false
+  tagName: v${version}
+  commitMessage: 'chore(release): v${version} [CI SKIP]'
+  tagAnnotation: Release v${version}
+github:
+  release: false
+  releaseName: Release v${version}
+  tokenRef: GITHUB_TOKEN
+  assets:
+    - dist/*.tgz
+npm:
+  publish: true

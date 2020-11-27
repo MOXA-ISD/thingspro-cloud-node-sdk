@@ -1,0 +1,45 @@
+{
+  "name": "thingspro-cloud-sdk",
+  "version": "0.1.0",
+  "description": "An API wrapper for the ThingsPro Cloud",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -t 5000 --recursive test/**/*.test.js",
+    "release": "release-it --config ./build/ci/.release-it.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MOXA-ISD/thingspro-cloud-node-sdk.git"
+  },
+  "keywords": [
+    "ThingsPro",
+    "ThingsPro Cloud",
+    "sdk",
+    "IoT",
+    "IIoT",
+    "Moxa"
+  ],
+  "author": "ThingsPro Cloud Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/issues"
+  },
+  "homepage": "https://github.com/MOXA-ISD/thingspro-cloud-node-sdk#readme",
+  "devDependencies": {
+    "@release-it/bumper": "^2.0.0",
+    "@release-it/conventional-changelog": "^2.0.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.14.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "release-it": "^14.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "camelcase": "^6.2.0",
+    "dotenv": "^8.2.0",
+    "faker": "^5.1.0",
+    "form-data": "^3.0.0",
+    "moment": "^2.29.1"
+  }
+}
