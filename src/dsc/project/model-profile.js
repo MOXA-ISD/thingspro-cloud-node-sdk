@@ -1,6 +1,6 @@
 
 module.exports = gv => {
-  const request = gv.requests.dlm
+  const request = gv.requests.dsc
 
   const create = async(projectId, newProfileName, modelName) => {
     const { data } = await request.post(

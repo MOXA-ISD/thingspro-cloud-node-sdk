@@ -54,7 +54,7 @@ let profiles = {
 }
 
 const setServerUrl = (serverUrl) => {
-  Object.keys(serverUrl).forEach(function(key) {
+  Object.keys(serverUrl).forEach(key => {
     if (serverUrl[key]) {
       urls[key] = serverUrl[key]
       requests[key] = defaultAxios(serverUrl[key])
@@ -65,7 +65,7 @@ const setServerUrl = (serverUrl) => {
 }
 
 const setSession = (auth) => {
-  Object.keys(auth).forEach(function(key) {
+  Object.keys(auth).forEach(key => {
     if (auth[key]) {
       sessions[key] = auth[key]
       requests[key].defaults.headers['Authorization'] = `Bearer ${sessions[key].token}`
@@ -77,7 +77,7 @@ const setSession = (auth) => {
 }
 
 const setCert = (certs) => {
-  Object.keys(certs).forEach(function(key) {
+  Object.keys(certs).forEach(key => {
     if (certs[key]) {
       requests[key].defaults.httpsAgent = new https.Agent({
         rejectUnauthorized: false,
@@ -93,7 +93,7 @@ const setCert = (certs) => {
 }
 
 const setProfile = (users) => {
-  Object.keys(users).forEach(function(key) {
+  Object.keys(users).forEach(key => {
     if (users[key]) {
       profiles[key] = users[key]
     }

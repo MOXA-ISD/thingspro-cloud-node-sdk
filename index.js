@@ -6,9 +6,13 @@ const svc = {
   pic: require('./src/pic')
 }
 
-const lib = {
+const utils = {
   random: require('./src/utils/random'),
-  dotenv: require('./src/utils/dotenv')
+  dotenv: require('./src/utils/dotenv'),
+  mocha: {
+    hooks: require('./src/utils/mocha/hooks'),
+    device: require('./src/utils/mocha/device')
+  }
 }
 
 module.exports = function(serverUrl = {
@@ -27,9 +31,6 @@ module.exports = function(serverUrl = {
     dsc: () => svc.dsc(gv),
     dlm: () => svc.dlm(gv),
     pic: () => svc.pic(gv),
-    utils: {
-      random: lib.random,
-      dotenv: lib.dotenv
-    }
+    utils
   }
 }

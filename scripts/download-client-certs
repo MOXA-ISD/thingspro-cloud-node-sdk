@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+ENV=${1:-dev}
+
+mkdir -p configs/certs
+download_client_certs(){
+  # health cert
+  aws ssm get-parameter \
+    --name health-check-crt \
+    --query Parameter.Value \
+    --output text \
+    > ./configs/certs/client.crt
+
+  # health key
+  aws ssm get-parameter \
+    --name health-check-key \
+    --with-decryption \
+    --query Parameter.Value \
+    --output text \
+    > ./configs/certs/client.key
+}
+
+main(){
+  download_client_certs
+}
+
+main

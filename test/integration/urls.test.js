@@ -1,6 +1,7 @@
 const expect = require('chai').expect
 
 describe('url', function() {
+  this.retries(5)
   this.timeout(60000)
   let tpc, cfg
 

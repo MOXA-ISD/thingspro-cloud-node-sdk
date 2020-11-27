@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := help
+.PHONY: build docs test
 
 VERSION ?= 0.0.0
 ifeq "$(VERSION)" "-"
@@ -6,6 +7,26 @@ ifeq "$(VERSION)" "-"
 endif
 ifneq ("$(wildcard VERSION)","")
 	override VERSION = `cat VERSION`
+endif
+
+# loading Current ENV
+ifdef ENV
+export ENV
+else
+export ENV=dev
+endif
+
+# set AWS_PROFILE for local
+ifndef CI
+ifeq ($(ENV), dev)
+	export AWS_PROFILE=cloud-dev
+endif
+ifeq ($(ENV), stage)
+	export AWS_PROFILE=cloud-stage
+endif
+ifeq ($(ENV), prod)
+	export AWS_PROFILE=cloud-prod
+endif
 endif
 
 TOKEN ?= configs/secrets/ci.token.env
@@ -16,7 +37,7 @@ endif
 
 export YARN_CACHE_FOLDER = $(PWD)/.cache/yarn
 
-.PHONY: help build test
+j: jsonnet-convert
 
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -53,16 +74,16 @@ release:
 	git config --global user.email "thingspro.ci@moxa.com"
 	git config --global user.name "CI Robot"
 	git config push.default current
-	$$(npm bin)/release-it --config ./build/ci/.release-it.yaml --ci > /dev/null 2>&1 || true
+	$$(npm bin)/release-it --npm.skipChecks --config ./build/ci/.release-it.yaml --ci
+
+download-client-certs:
+	@./scripts/download-client-certs
 
 test-pipe:
 	drone exec --trusted --pipeline test-pipe build/ci/.drone.yml
 
-develop-pipe:
-	drone exec --trusted --pipeline develop-pipe build/ci/.drone.yml
-
-release-pipe:
-	drone exec --trusted --pipeline release-pipe build/ci/.drone.yml
+main-pipe:
+	drone exec --trusted --pipeline main-pipe build/ci/.drone.yml
 
 jsonnet-convert: ## convert .drone.jsonnet to .drone.yml
 	drone jsonnet --source build/ci/.drone.jsonnet --target build/ci/.drone.yml --stream

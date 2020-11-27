@@ -3,7 +3,7 @@ const project = require('./project')
 const device = require('./device')
 const pkg = require('./package')
 
-module.exports = function(gv) {
+module.exports = gv => {
   const lib = {
     auth: auth(gv, 'dlm'),
     project: project(gv),
