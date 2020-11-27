@@ -1,13 +1,17 @@
-const auth = require('../lib/auth')
 
-module.exports = function(gv) {
-  const lib = {
-    auth: auth(gv, 'pic')
+module.exports = gv => {
+
+  const setCert = (cert, key) => {
+    let certs = {}
+    certs['pic'] = null
+    if (cert && key){
+      certs['pic'] = { cert, key }
+    }
+    gv.setCert(certs)
   }
+
   return {
-    login: lib.auth.login,
-    logout: lib.auth.logout,
-    token: gv.sessions.pic.token,
+    setCert,
     request: gv.requests.pic,
     me: gv.profiles.pic
   }

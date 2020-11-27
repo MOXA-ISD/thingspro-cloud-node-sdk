@@ -1,7 +1,7 @@
 const formData = require('form-data')
 
 module.exports = gv => {
-  const request = gv.requests.dlm
+  const request = gv.requests.dsc
 
   const get = async(projectId, limit = 1000, offset = 0) => {
     const { data } = await request.get(

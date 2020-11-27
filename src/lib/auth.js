@@ -1,11 +1,11 @@
 const axios = require('axios')
 const moment = require('moment')
 
-module.exports = function(gv, service) {
+module.exports = (gv, service) => {
   const session = gv.sessions[service]
   const request = gv.requests[service]
 
-  const login = async function(loginEmail, loginPassword) {
+  const login = async(loginEmail, loginPassword) => {
     if (!loginEmail || !loginPassword) { return }
 
     if (session.expiredAt >= moment()) {
@@ -32,7 +32,7 @@ module.exports = function(gv, service) {
     }
   }
 
-  const logout = async function() {
+  const logout = async() => {
     try {
       await request.post('/logout')
       let session = {}

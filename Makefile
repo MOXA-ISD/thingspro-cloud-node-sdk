@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := help
+.PHONY: build docs test
 
 VERSION ?= 0.0.0
 ifeq "$(VERSION)" "-"
@@ -16,7 +17,7 @@ endif
 
 export YARN_CACHE_FOLDER = $(PWD)/.cache/yarn
 
-.PHONY: help build test
+j: jsonnet-convert
 
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
