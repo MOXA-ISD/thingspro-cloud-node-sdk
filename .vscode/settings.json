@@ -1,0 +1,26 @@
+{
+  "[yaml]": {
+    "editor.formatOnSave": true
+  },
+  "commentAnchors.workspace.excludeFiles": "**/{venv,.git,.idea,target,out,build,vendor,.vscode}/**/*",
+  "editor.formatOnSave": false,
+  "editor.minimap.enabled": false,
+  "editor.trimAutoWhitespace": true,
+  "editor.wordWrap": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "workbench.editor.enablePreview": false,
+  "files.exclude": {
+    "**/.cache": true,
+    "**/.nyc_output": true,
+    "**/node_modules": true,
+    "**/LICENSE": true,
+  },
+  "mocha.files.glob": "test/**/*.test.js",
+  "mocha.coverage": {"enable": false}
+}
