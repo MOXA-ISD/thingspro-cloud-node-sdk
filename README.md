@@ -39,26 +39,34 @@ console.log((await tpc.dlm().project.get())
 
 ### Table of Contents
 
-- [Admin API](#admin-api)
-  - [admin login](#admin-login)
-  - [admin logout](#admin-logout)
-  - [admin me](#admin-me)
-  - [admin request](#admin-request)
-- [DSC API](#dsc-api)
-  - [dsc login](#dsc-login)
-  - [dsc logout](#dsc-logout)
-  - [dsc me](#dsc-me)
-  - [dsc request](#dsc-request)
-- [DLM API](#dlm-api)
-  - [dlm login](#dlm-login)
-  - [dlm logout](#dlm-logout)
-  - [dlm me](#dlm-me)
-  - [dlm request](#dlm-request)
-- [PIC API](#pic-api)
-  - [setCert](#set-cert)
-  - [pic request](#pic-request)
+- [Admin](#admin)
+  - [login](#admin-login)
+  - [logout](#admin-logout)
+  - [me](#admin-me)
+  - [request](#admin-request)
+- [Device Security Center](#device-secrity-center)
+  - [login](#dsc-login)
+  - [logout](#dsc-logout)
+  - [me](#dsc-me)
+  - [request](#dsc-request)
+- [Device Lifecycle Management](#device-lifecycle-management)
+  - [login](#dlm-login)
+  - [logout](#dlm-logout)
+  - [me](#dlm-me)
+  - [request](#dlm-request)
+- [Realtime Message](#realtime-message)
+  - [subscribe](#rtm-subscribe)
+- [Provisioning Init-connection Certificate](#provisioning-init-connection-certificate)
+  - [setCert](#pic-set-cert)
+  - [request](#pic-request)
+- [Software Repository](#software-repository)
+  - [setCert](#sr-set-cert)
+  - [request](#sr-request)
+- [Utils](#utils)
+  - [dotenv](#dotenv)
+  - [random](#random)
 
-### Admin API
+### Admin
 
 #### admin login
 
@@ -114,7 +122,7 @@ console.log(companies)
 ```
 </details>
 
-### DSC API
+### Device Security Center
 
 #### dsc login
 
@@ -172,7 +180,7 @@ console.log(projects)
 ```
 </details>
 
-### DLM API
+### Device Lifecycle Management
 
 #### dlm login
 
