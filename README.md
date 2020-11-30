@@ -2,6 +2,8 @@
 
 [![Build Status](https://icsdrone.moxa.online/api/badges/MOXA-ISD/thingspro-cloud-node-sdk/status.svg)](https://icsdrone.moxa.online/MOXA-ISD/thingspro-cloud-node-sdk)
 
+[![NPM](https://nodei.co/npm/thingspro-cloud-node-sdk.png)](https://npmjs.org/package/thingspro-cloud-node-sdk)
+
 > An API wrapper for the [ThingsPro Cloud](https://thingsprocloud.com) API.
 
 ### Installation
