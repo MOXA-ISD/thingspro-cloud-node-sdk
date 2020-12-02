@@ -41,201 +41,33 @@ console.log((await tpc.dlm().project.get())
 
 ### Table of Contents
 
-- [Admin](#admin)
-  - [login](#admin-login)
-  - [logout](#admin-logout)
-  - [me](#admin-me)
-  - [request](#admin-request)
-- [DSC: Device Security Center](#dsc-device-secrity-center)
-  - [login](#dsc-login)
-  - [logout](#dsc-logout)
-  - [me](#dsc-me)
-  - [request](#dsc-request)
-- [DLM: Device Lifecycle Management](#dlm-device-lifecycle-management)
-  - [login](#dlm-login)
-  - [logout](#dlm-logout)
-  - [me](#dlm-me)
-  - [request](#dlm-request)
-- [RTM: Realtime Message](#rtm-realtime-message)
-  - [subscribe](#rtm-subscribe)
-- [PIC: Provisioning Init-connection Certificate](#pic-provisioning-init-connection-certificate)
-  - [setCert](#pic-set-cert)
-  - [request](#pic-request)
-- [DSR: Device Software Repository](#dsr-device-software-repository)
-  - [setCert](#sr-set-cert)
-  - [request](#sr-request)
-- [Utils](#utils)
-  - [dotenv](#dotenv)
-  - [random](#random)
+- [Admin](docs/admin.md)
+  - [login](docs/admin.md#admin-login)
+  - [logout](docs/admin.md#admin-logout)
+  - [me](docs/admin.md#admin-me)
+  - [request](docs/admin.md#admin-request)
+- [DSC: Device Security Center](docs/dsc.md)
+  - [login](docs/dsc.md#dsc-login)
+  - [logout](docs/dsc.md#dsc-logout)
+  - [me](docs/dsc.md#dsc-me)
+  - [request](docs/dsc.md#dsc-request)
+- [DLM: Device Lifecycle Management](docs/dlm.md)
+  - [login](docs/dlm.md#dlm-login)
+  - [logout](docs/dlm.md#dlm-logout)
+  - [me](docs/dlm.md#dlm-me)
+  - [request](docs/dlm.md#dlm-request)
+- [RTM: Realtime Message](docs/rtm.md)
+  - [subscribe](docs/rtm.md#rtm-subscribe)
+- [PIC: Provisioning Init-connection Certificate](docs/pic.md)
+  - [setCert](docs/pic.md#pic-set-cert)
+  - [request](docs/pic.md#pic-request)
+- [DSR: Device Software Repository](docs/dsr.md)
+  - [setCert](docs/dsr.md#sr-set-cert)
+  - [request](docs/dsr.md#sr-request)
+- [Utils](docs/utils.md)
+  - [dotenv](docs/utils.md#dotenv)
+  - [random](docs/utils.md#random)
 
-### Admin
 
-#### admin login
 
-Login admin api with email and password.
 
-```js
-await tpc.admin().login('guest@thingsprocloud.com', 'password')
-const me = tpc.admin().me
-console.log(me)
-```
-
-#### admin logout
-
-Logout admin api.
-
-```js
-await tpc.admin().logout()
-const me = tpc.admin().me
-console.log(me)
-```
-
-#### admin me
-
-get logged in user profile.
-
-```js
-const me = tpc.admin().me
-console.log(me)
-```
-
-#### admin request
-
-get axios instance with logged in session.
-
-```js
-const request = tpc.admin().request
-const companies = await tpc.admin().request.get('/companys')
-console.log(companies)
-```
-
-<details>
-<summary>Output</summary>
-
-```js
-{
-  companyId: '22237172-cd34-474a-bc4d-8a0070597b77',
-  createdAt: '2020-04-07T01:32:10.512430Z',
-  dashboard: { layout: [ [Object], [Object], [Object], [Object], [Object] ] },
-  name: 'MOXA',
-  status: 'enable',
-  updatedAt: '2020-04-07T01:32:10.512430Z'
-}
-```
-</details>
-
-### DSC: Device Security Center
-
-#### dsc login
-
-Login dsc api with email and password.
-
-```js
-await tpc.dsc().login('guest@thingsprocloud.com', 'password')
-const me = tpc.dsc().me
-console.log(me)
-```
-
-#### dsc logout
-
-Logout dsc api.
-
-```js
-await tpc.dsc().logout()
-const me = tpc.dsc().me
-console.log(me)
-```
-
-#### dsc me
-
-get logged in user profile.
-
-```js
-const me = tpc.dsc().me
-console.log(me)
-```
-
-#### dsc request
-
-get axios instance with logged in session.
-
-```js
-const request = tpc.dsc().request
-const projects = await tpc.dsc().request.get('/projects')
-console.log(projects)
-```
-
-<details>
-<summary>Output</summary>
-
-```js
-[
-  {
-    createdAt: '2020-11-26T09:16:07.585323Z',
-    description: '',
-    name: '[test] Practical Fresh Shoes',
-    projectId: '073f329f-7edd-4651-8d6f-a998b04771dd',
-    updatedAt: '2020-11-26T09:16:07.585323Z',
-    userList: [ [Object], [Object], [Object] ]
-  }
-]
-```
-</details>
-
-### DLM: Device Lifecycle Management
-
-#### dlm login
-
-Login dlm api with email and password.
-
-```js
-await tpc.dlm().login('guest@thingsprocloud.com', 'password')
-const me = tpc.dlm().me
-console.log(me)
-```
-
-#### dlm logout
-
-Logout dlm api.
-
-```js
-await tpc.dlm().logout()
-const me = tpc.dlm().me
-console.log(me)
-```
-
-#### dlm me
-
-get logged in user profile.
-
-```js
-const me = tpc.dlm().me
-console.log(me)
-```
-
-#### dlm request
-
-get axios instance with logged in session.
-
-```js
-const request = tpc.dlm().request
-const projects = await tpc.dlm().request.get('/projects')
-console.log(projects)
-```
-
-<details>
-<summary>Output</summary>
-
-```js
-[
-  {
-    createdAt: '2020-11-26T09:16:07.585323Z',
-    description: '',
-    name: '[test] Practical Fresh Shoes',
-    projectId: '073f329f-7edd-4651-8d6f-a998b04771dd',
-    updatedAt: '2020-11-26T09:16:07.585323Z',
-    userList: [ [Object], [Object], [Object] ]
-  }
-]
-```
-</details>
