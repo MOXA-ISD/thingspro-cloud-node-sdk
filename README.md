@@ -46,22 +46,22 @@ console.log((await tpc.dlm().project.get())
   - [logout](#admin-logout)
   - [me](#admin-me)
   - [request](#admin-request)
-- [DSC: Device Security Center](#device-secrity-center)
+- [DSC: Device Security Center](#dsc-device-secrity-center)
   - [login](#dsc-login)
   - [logout](#dsc-logout)
   - [me](#dsc-me)
   - [request](#dsc-request)
-- [DLM: Device Lifecycle Management](#device-lifecycle-management)
+- [DLM: Device Lifecycle Management](#dlm-device-lifecycle-management)
   - [login](#dlm-login)
   - [logout](#dlm-logout)
   - [me](#dlm-me)
   - [request](#dlm-request)
-- [RTM: Realtime Message](#realtime-message)
+- [RTM: Realtime Message](#rtm-realtime-message)
   - [subscribe](#rtm-subscribe)
-- [PIC: Provisioning Init-connection Certificate](#provisioning-init-connection-certificate)
+- [PIC: Provisioning Init-connection Certificate](#pic-provisioning-init-connection-certificate)
   - [setCert](#pic-set-cert)
   - [request](#pic-request)
-- [DSR: Device Software Repository](#software-repository)
+- [DSR: Device Software Repository](#dsr-device-software-repository)
   - [setCert](#sr-set-cert)
   - [request](#sr-request)
 - [Utils](#utils)
@@ -124,7 +124,7 @@ console.log(companies)
 ```
 </details>
 
-### Device Security Center
+### DSC: Device Security Center
 
 #### dsc login
 
@@ -182,7 +182,7 @@ console.log(projects)
 ```
 </details>
 
-### Device Lifecycle Management
+### DLM: Device Lifecycle Management
 
 #### dlm login
 
