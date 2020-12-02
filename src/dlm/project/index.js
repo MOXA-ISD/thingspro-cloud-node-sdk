@@ -1,6 +1,6 @@
 const modelProfile = require('./model-profile')
 
-module.exports = function(gv) {
+module.exports = gv => {
   const request = gv.requests.dlm
 
   const get = async(limit = 1000, offset = 0) => {

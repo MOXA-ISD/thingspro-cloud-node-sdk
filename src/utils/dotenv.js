@@ -5,7 +5,7 @@ module.exports = function(path) {
   if (path) {
     require('dotenv').config({ path })
 
-    Object.keys(process.env).forEach(function(key) {
+    Object.keys(process.env).forEach(key => {
       if (key.startsWith('TPC_')) {
         const group = camelCase(key.split('_')[1])
         const nk = camelCase(key.split('_').slice(2).join())

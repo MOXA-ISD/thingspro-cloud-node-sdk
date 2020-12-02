@@ -1,5 +1,5 @@
 
-module.exports = function(gv) {
+module.exports = gv => {
   const request = gv.requests.dlm
 
   const create = async(projectId, newProfileName, modelName) => {

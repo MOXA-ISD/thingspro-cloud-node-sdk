@@ -1,6 +1,6 @@
 const formData = require('form-data')
 
-module.exports = function(gv) {
+module.exports = gv => {
   const request = gv.requests.dlm
 
   const getByName = async(packageName) => {

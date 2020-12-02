@@ -1,6 +1,6 @@
 const auth = require('../lib/auth')
 
-module.exports = function(gv) {
+module.exports = gv => {
   const lib = {
     auth: auth(gv, 'admin')
   }

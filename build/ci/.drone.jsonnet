@@ -67,7 +67,7 @@ local setup_deps() = {
 
 local setup_aws_cli() = {
   name: "setup-aws-cli",
-  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/ci/docker:dind-cloud",
+  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/ci/docker:dind-cloud-4",
   commands: [
     "make deps-py VENV_TYPE=dkr"
   ],
@@ -122,7 +122,7 @@ local release(env) = {
 
 local build_docker_image(env) = {
   name: "build-docker-image",
-  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/ci/docker:dind-cloud",
+  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/ci/docker:dind-cloud-4",
   privileged: true,
   environment: {
     AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
@@ -130,8 +130,8 @@ local build_docker_image(env) = {
     AWS_DEFAULT_REGION: "us-west-2"
   },
   commands: activate_venv("dkr") + [
-    "/usr/bin/dockerd --data-root /var/lib/docker &> /dev/null &",
-    "until /usr/bin/docker version; do sleep 1; done",
+    "dockerd --data-root /var/lib/docker &> /dev/null &",
+    "until docker version; do sleep 1; done",
     "rm -rf .env",
     "make login",
     "make build-docker-image ENV=" + env,
@@ -151,7 +151,7 @@ local build_docker_image(env) = {
 
 local tag_docker_image() = {
   name: "tag-docker-image",
-  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/ci/docker:dind-cloud",
+  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/ci/docker:dind-cloud-4",
   privileged: true,
   environment: {
     AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
@@ -159,8 +159,8 @@ local tag_docker_image() = {
     AWS_DEFAULT_REGION: "us-west-2"
   },
   commands: activate_venv("dkr") + [
-    "/usr/bin/dockerd --data-root /var/lib/docker &> /dev/null &",
-    "until /usr/bin/docker version; do sleep 1; done",
+    "dockerd --data-root /var/lib/docker &> /dev/null &",
+    "until docker version; do sleep 1; done",
     "rm -rf .env",
     "make login",
     "make publish-docker-image ENV=prod",

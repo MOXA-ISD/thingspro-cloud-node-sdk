@@ -2,7 +2,7 @@ const auth = require('../lib/auth')
 const project = require('./project')
 const device = require('./device')
 
-module.exports = function(gv) {
+module.exports = gv => {
   const lib = {
     auth: auth(gv, 'dsc'),
     project: project(gv),
