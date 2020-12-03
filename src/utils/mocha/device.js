@@ -11,12 +11,12 @@ const findOne = async(tpc, projectId, maxRetry = 10, count = 0) => {
     const device = devices[Math.floor(Math.random() * devices.length)]
     return device
   }
-  if (count++ < 10) {
+  if (count++ < maxRetry) {
     console.log(`    ? can not find an idle device, will retry after ${count * 2} second`)
     await timeout(count * 2000)
     return findOne(tpc, projectId, maxRetry, count)
   } else {
-    return {}
+    throw new Error(`    X Can not find an idle device after ${maxRetry} retries.`)
   }
 }
 
