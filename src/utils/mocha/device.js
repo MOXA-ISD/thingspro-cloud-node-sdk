@@ -9,6 +9,7 @@ const findOne = async(tpc, projectId, maxRetry = 10, count = 0) => {
   })
   if (devices.length > 0) {
     const device = devices[Math.floor(Math.random() * devices.length)]
+    console.log(`    ! idle device found: ${device.hostName}`)
     return device
   }
   if (count++ < maxRetry) {
