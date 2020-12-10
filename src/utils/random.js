@@ -18,7 +18,7 @@ const fake = () => {
     'UC-8220-T-LX',
     'UC-8210-T-LX	'
   ]
-  return models[Math.floor(Math.random() * models.length)]['modelName']
+  return models[Math.floor(Math.random() * models.length)]
 }
 
 const serialNumber = () => `test-${faker.random.number({ min:1000000, max:9999999 })}`
