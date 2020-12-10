@@ -16,7 +16,7 @@ const fake = () => {
   const models = [
     'UC-3111-T-EU-LX',
     'UC-8220-T-LX',
-    'UC-8210-T-LX	'
+    'UC-8210-T-LX'
   ]
   return models[Math.floor(Math.random() * models.length)]
 }
