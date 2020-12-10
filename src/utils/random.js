@@ -5,10 +5,19 @@ const companyName = () => `[test] ${faker.company.companyName().slice(0, 23)}`
 
 const projectName = () => `[test] ${faker.commerce.productName()}`
 
-const modelName = async(tpc) => {
+// modelName
+const real = async(tpc) => {
   const { data } = await tpc.dlm().request.get('/modelProfiles')
   const models = data.data
   return models[Math.floor(Math.random() * models.length)]['modelName']
+}
+
+const fake = () => {
+  const models = [
+    'UC-3111-T-EU-LX',
+    'UC-8220-T-LX',
+    'UC-8210-T-LX	'
+  ]
 }
 
 const serialNumber = () => `test-${faker.random.number({ min:1000000, max:9999999 })}`
@@ -46,7 +55,10 @@ const hostname = () => faker.internet.domainWord()
 module.exports = {
   companyName,
   projectName,
-  modelName,
+  modelName: {
+    real,
+    fake
+  },
   serialNumber,
   mac,
   profileName,
