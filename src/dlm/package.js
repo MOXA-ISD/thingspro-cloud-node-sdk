@@ -6,7 +6,7 @@ module.exports = gv => {
   const getByName = async(packageName) => {
     const { data } = await request.get(
       '/packages',
-      { params: { limit: 1, packageName } }
+      { params: { limit: 10, packageName } }
     )
     return data.data.find((i)=>i.latest)
   }
