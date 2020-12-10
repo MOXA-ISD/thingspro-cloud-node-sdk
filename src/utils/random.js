@@ -6,31 +6,8 @@ const companyName = () => `[test] ${faker.company.companyName().slice(0, 23)}`
 const projectName = () => `[test] ${faker.commerce.productName()}`
 
 const modelName = async(tpc) => {
-  let models
-  if (tpc){
-    const { data } = await tpc.dlm().request.get('/modelProfiles')
-    models = data.data
-  } else {
-    models = [
-      'UC-8100A-ME-T-LX',
-      'UC-3111-LX',
-      'UC-8112A-ME-T-LX-US',
-      'UC-8112-LX',
-      'UC-8112A-ME-T-LX-EU',
-      'UC-8112A-ME-T-LX',
-      'UC-8210-T-LX-S',
-      'UC-8210-T-LX',
-      'UC-3111-T-EU-LX',
-      'UC-8220-T-LX',
-      'AIG-301-T-US-AZU-LX',
-      'AIG-301-T-EU-AZU-LX',
-      'AIG-301-T-AP-AZU-LX',
-      'AIG-301-T-CN-AZU-LX',
-      'AIG-301-T-AZU-LX',
-      'UC-3100-T-EU-LX',
-      'UC-8220-T-LX-US-S'
-    ]
-  }
+  const { data } = await tpc.dlm().request.get('/modelProfiles')
+  const models = data.data
   return models[Math.floor(Math.random() * models.length)]['modelName']
 }
 
