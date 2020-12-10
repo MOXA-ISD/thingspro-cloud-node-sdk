@@ -8,7 +8,7 @@ platform:
 
 steps:
 - name: restore-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:
@@ -36,7 +36,7 @@ steps:
   - setup-deps
 
 - name: rebuild-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:
@@ -71,7 +71,7 @@ platform:
 
 steps:
 - name: restore-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:
@@ -124,7 +124,7 @@ steps:
   - integration-test
 
 - name: rebuild-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:
@@ -163,7 +163,7 @@ platform:
 
 steps:
 - name: restore-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:
@@ -216,7 +216,7 @@ steps:
   - integration-test
 
 - name: rebuild-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:
@@ -255,7 +255,7 @@ platform:
 
 steps:
 - name: restore-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:
@@ -294,7 +294,7 @@ steps:
   - build
 
 - name: rebuild-cache
-  image: meltwater/drone-cache:dev
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
     bucket: dlm-drone-ci-cache
     mount:

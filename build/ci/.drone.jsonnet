@@ -25,7 +25,7 @@ local prepare_dot_env(env) =
 # steps
 local restore_cache() = {
   name: "restore-cache",
-  image: "meltwater/drone-cache:dev",
+  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache",
   environment: {
     AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
     AWS_SECRET_ACCESS_KEY: { from_secret: "AWS_DEV_KEY" },
@@ -40,7 +40,7 @@ local restore_cache() = {
 
 local rebuild_cache(deps) = {
   name: "rebuild-cache",
-  image: "meltwater/drone-cache:dev",
+  image: "164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache",
   environment: {
     AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
     AWS_SECRET_ACCESS_KEY: { from_secret: "AWS_DEV_KEY" },
