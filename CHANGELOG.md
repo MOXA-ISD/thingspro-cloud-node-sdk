@@ -1,3 +1,10 @@
+## [0.1.20](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.19...v0.1.20) (2020-12-11)
+
+
+### Bug Fixes
+
+* update model list ([9ae8a43](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/9ae8a4397875bc5fc67fe3a9ff79b37d8d37e6f0))
+
 ## [0.1.19](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.18...v0.1.19) (2020-12-10)
 
 ## [0.1.18](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.17...v0.1.18) (2020-12-10)
