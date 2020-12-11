@@ -31,7 +31,7 @@ steps:
 - name: integration-test
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:node-12-v1
   commands:
-  - make deps
+  - make test
   depends_on:
   - setup-deps-node
 
@@ -40,7 +40,7 @@ steps:
   commands:
   - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
   - cat .npmrc
-  - make deps
+  - make release
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: AWS_DEV_KEY_ID

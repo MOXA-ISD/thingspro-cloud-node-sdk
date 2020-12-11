@@ -51,7 +51,7 @@ local integration_test() = {
   name: "integration-test",
   image: image("node-12-v1"),
   commands: [
-    "make deps"
+    "make test"
   ],
   depends_on: [
     "setup-deps-node"
@@ -69,7 +69,7 @@ local release_it() = {
   commands: [
     "echo \"//registry.npmjs.org/:_authToken=$NPM_TOKEN\" > .npmrc",
     "cat .npmrc",
-    "make deps"
+    "make release"
   ],
   depends_on: [
     "integration-test"
