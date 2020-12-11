@@ -6,13 +6,13 @@ const companyName = () => `[test] ${faker.company.companyName().slice(0, 23)}`
 const projectName = () => `[test] ${faker.commerce.productName()}`
 
 // modelName
-const real = async(tpc) => {
+const all = async(tpc) => {
   const { data } = await tpc.dlm().request.get('/modelProfiles')
   const models = data.data
   return models[Math.floor(Math.random() * models.length)]['modelName']
 }
 
-const fake = () => {
+const dlm = () => {
   const models = [
     'UC-3111-T-EU-LX',
     'UC-8100A-ME-T-LX',
@@ -64,8 +64,8 @@ module.exports = {
   companyName,
   projectName,
   modelName: {
-    real,
-    fake
+    all,
+    dlm
   },
   serialNumber,
   mac,
