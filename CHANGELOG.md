@@ -1,3 +1,11 @@
+## 0.1.23 (2020-12-11)
+
+
+### Bug Fixes
+
+* fix ci not working ([fe8b867](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/fe8b86715b6c181e764047b79fae71b8a86a1dc6))
+* fix test not working ([615516f](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/615516f457d4cd43c49dc825ebfe116bf5200518))
+
 ## [0.1.21](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.20...v0.1.21) (2020-12-11)
 
 
