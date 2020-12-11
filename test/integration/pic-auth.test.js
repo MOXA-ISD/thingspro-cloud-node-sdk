@@ -1,7 +1,9 @@
 const expect = require('chai').expect
 const should = require('should')
+const fs = require('fs')
 
 describe('pic auth', function() {
+  this.retries(5)
   this.timeout(60000)
   let tpc, cfg
 
@@ -12,7 +14,9 @@ describe('pic auth', function() {
   })
 
   it('should access pic api with client cert', async function() {
-    tpc.pic().setCert('', '')
+    const cert = fs.readFileSync('./configs/certs/client.crt', { encoding: 'utf8' })
+    const key = fs.readFileSync('./configs/certs/client.key', { encoding: 'utf8' })
+    tpc.pic().setCert(cert, key)
     const { status } = await tpc.pic().request.get('/health')
     expect(status).to.equal(200)
   })

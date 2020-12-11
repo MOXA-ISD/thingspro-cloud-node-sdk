@@ -9,10 +9,8 @@ git:
   commitMessage: 'chore(release): v${version} [CI SKIP]'
   tagAnnotation: Release v${version}
 github:
-  release: false
+  release: true
   releaseName: Release v${version}
   tokenRef: GITHUB_TOKEN
-  assets:
-    - dist/*.tgz
 npm:
   publish: true

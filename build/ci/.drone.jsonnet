@@ -47,14 +47,39 @@ local setup_deps_node() = {
   ]
 };
 
+local download_client_certs() = {
+  name: "download-client-certs",
+  image: image("k8s-v1"),
+  environment: {
+    AWS_DEFAULT_REGION: "ap-northeast-1",
+    AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
+    AWS_SECRET_ACCESS_KEY: { from_secret: "AWS_DEV_KEY" },
+  },
+  commands: [
+    "make download-client-certs",
+  ],
+  depends_on: [
+    "restore-cache"
+  ]
+};
+
 local integration_test() = {
   name: "integration-test",
   image: image("node-12-v1"),
+  environment: {
+    TPC_LOGIN_EMAIL: { from_secret: "TPC_LOGIN_EMAIL" },
+    TPC_LOGIN_PASSWORD: { from_secret: "TPC_LOGIN_PASSWORD" },
+  },
   commands: [
+    "cp configs/.env.dev.example .env",
+    "sed -i \"s/guest@thingsprocloud.com/$TPC_LOGIN_EMAIL/g\" .env",
+    "sed -i \"s/your_password/$TPC_LOGIN_PASSWORD/g\" .env",
+    "cat .env",
     "make test"
   ],
   depends_on: [
-    "setup-deps-node"
+    "setup-deps-node",
+    "download-client-certs"
   ]
 };
 
@@ -65,10 +90,12 @@ local release_it() = {
     AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
     AWS_SECRET_ACCESS_KEY: { from_secret: "AWS_DEV_KEY" },
     NPM_TOKEN: { from_secret: "NPM_TOKEN" },
+    GITHUB_TOKEN: { from_secret: "GITHUB_TOKEN" },
   },
   commands: [
     "echo \"//registry.npmjs.org/:_authToken=$NPM_TOKEN\" > .npmrc",
     "cat .npmrc",
+    "git config remote.origin.url \"https://$GITHUB_TOKEN@github.com/MOXA-ISD/thingspro-cloud-node-sdk.git\"",
     "make release"
   ],
   depends_on: [
@@ -83,6 +110,7 @@ local main_pipeline() = {
   steps: [
     restore_cache(),
     setup_deps_node(),
+    download_client_certs(),
     integration_test(),
     release_it(),
     rebuild_cache(),

@@ -28,24 +28,50 @@ steps:
   depends_on:
   - restore-cache
 
+- name: download-client-certs
+  image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:k8s-v1
+  commands:
+  - make download-client-certs
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: AWS_DEV_KEY_ID
+    AWS_DEFAULT_REGION: ap-northeast-1
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_DEV_KEY
+  depends_on:
+  - restore-cache
+
 - name: integration-test
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:node-12-v1
   commands:
+  - cp configs/.env.dev.example .env
+  - sed -i "s/guest@thingsprocloud.com/$TPC_LOGIN_EMAIL/g" .env
+  - sed -i "s/your_password/$TPC_LOGIN_PASSWORD/g" .env
+  - cat .env
   - make test
+  environment:
+    TPC_LOGIN_EMAIL:
+      from_secret: TPC_LOGIN_EMAIL
+    TPC_LOGIN_PASSWORD:
+      from_secret: TPC_LOGIN_PASSWORD
   depends_on:
   - setup-deps-node
+  - download-client-certs
 
 - name: release-it
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:node-12-v1
   commands:
   - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
   - cat .npmrc
+  - git config remote.origin.url "https://$GITHUB_TOKEN@github.com/MOXA-ISD/thingspro-cloud-node-sdk.git"
   - make release
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: AWS_DEV_KEY_ID
     AWS_SECRET_ACCESS_KEY:
       from_secret: AWS_DEV_KEY
+    GITHUB_TOKEN:
+      from_secret: GITHUB_TOKEN
     NPM_TOKEN:
       from_secret: NPM_TOKEN
   depends_on:

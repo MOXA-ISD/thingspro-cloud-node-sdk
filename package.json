@@ -1,11 +1,11 @@
 {
   "name": "thingspro-cloud-sdk",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "An API wrapper for the ThingsPro Cloud",
   "main": "index.js",
   "scripts": {
     "test": "mocha -t 5000 --recursive test/**/*.test.js",
-    "release": "release-it --config ./build/ci/.release-it.yaml"
+    "release": "release-it --npm.skipChecks --config ./build/ci/.release-it.yaml"
   },
   "repository": {
     "type": "git",

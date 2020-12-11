@@ -1,6 +1,7 @@
 const expect = require('chai').expect
 
 describe('dlm auth', function() {
+  this.retries(5)
   this.timeout(60000)
   let tpc, cfg
 
