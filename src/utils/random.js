@@ -15,8 +15,15 @@ const real = async(tpc) => {
 const fake = () => {
   const models = [
     'UC-3111-T-EU-LX',
+    'UC-8100A-ME-T-LX',
+    'UC-8112A-ME-T-LX-US',
+    'UC-8112A-ME-T-LX-EU',
+    'UC-8112A-ME-T-LX',
+    'UC-8210-T-LX-S',
+    'UC-8210-T-LX',
     'UC-8220-T-LX',
-    'UC-8210-T-LX'
+    'UC-8220-T-LX-US-S',
+    'UC-8220-T-LX-EU-S'
   ]
   return models[Math.floor(Math.random() * models.length)]
 }
