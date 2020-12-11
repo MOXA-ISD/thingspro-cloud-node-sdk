@@ -1,3 +1,10 @@
+## [0.1.21](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.20...v0.1.21) (2020-12-11)
+
+
+### Bug Fixes
+
+* update api from fake to dlm ([2c69c4a](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/2c69c4a738113dac1a1cef47a5576c5723a791a5))
+
 ## [0.1.20](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.19...v0.1.20) (2020-12-11)
 
 
