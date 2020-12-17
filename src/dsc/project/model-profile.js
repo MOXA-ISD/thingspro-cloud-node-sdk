@@ -12,14 +12,14 @@ module.exports = gv => {
         }
       }
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   const remove = async(projectId, profileId) => {
     const $r = await request.delete(
       `/projects/${projectId}/modelProfiles/${profileId}`
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   return {

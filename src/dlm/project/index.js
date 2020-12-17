@@ -8,14 +8,14 @@ module.exports = gv => {
       '/projects',
       { params:{ limit, offset } }
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   const getById = async(projectId) => {
     const $r = await request.get(
       `/projects/${projectId}`
     )
-    return {...$r.data, $r}
+    return { ...$r.data, $r }
   }
 
   const getByName = async(name) => {
@@ -23,7 +23,7 @@ module.exports = gv => {
       '/projects',
       { params:{ name } }
     )
-    return {...$r.data.data[0], $r}
+    return { ...$r.data.data[0], $r }
   }
 
   const create = async(projectName) => {
@@ -31,14 +31,14 @@ module.exports = gv => {
       '/projects',
       { name: projectName }
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   const remove = async(projectId) => {
     const $r = await request.delete(
       `/projects/${projectId}`
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   return {

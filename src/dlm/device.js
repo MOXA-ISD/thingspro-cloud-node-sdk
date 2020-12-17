@@ -8,14 +8,14 @@ module.exports = gv => {
       `/projects/${projectId}/devices`,
       { params:{ limit, offset } }
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   const getById = async(projectId, deviceId) => {
     const $r = await request.get(
       `/projects/${projectId}/devices/${deviceId}`
     )
-    return {...$r.data, $r}
+    return { ...$r.data, $r }
   }
 
   const create = async(projectId, modelName, serialNumber, mac) => {
@@ -23,14 +23,14 @@ module.exports = gv => {
       '/devices',
       { projectId, modelName, serialNumber, mac }
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   const remove = async(deviceId) => {
     const $r = await request.delete(
       `/devices/${deviceId}`
     )
-    return {...$r.data.data, $r}
+    return { ...$r.data.data, $r }
   }
 
   const setHostName = async(deviceId, hostName) => {
@@ -51,7 +51,7 @@ module.exports = gv => {
     const $r = await request.put(
       `/devices/${deviceId}/config`, form, { headers }
     )
-    return {...$r.data, $r}
+    return { ...$r.data, $r }
   }
 
   const setTag = async(projectId, deviceId, tagName, colour) => {

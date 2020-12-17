@@ -8,7 +8,7 @@ module.exports = gv => {
       '/packages',
       { params: { limit: 10, packageName } }
     )
-    return {...$r.data.data.find((i)=>i.latest), $r}
+    return { ...$r.data.data.find((i)=>i.latest), $r }
   }
 
   return {
