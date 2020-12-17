@@ -1,8 +1,6 @@
 # ThingsPro Cloud SDK for Node.js
 
-[![Build Status](https://icsdrone.moxa.online/api/badges/MOXA-ISD/thingspro-cloud-node-sdk/status.svg?ref=refs/heads/main)](https://icsdrone.moxa.online/MOXA-ISD/thingspro-cloud-node-sdk)
-
-[![NPM](https://nodei.co/npm/thingspro-cloud-node-sdk.png)](https://npmjs.org/package/thingspro-cloud-node-sdk)
+[![Build Status](https://icsdrone.moxa.online/api/badges/MOXA-ISD/thingspro-cloud-node-sdk/status.svg?ref=refs/heads/main)](https://icsdrone.moxa.online/MOXA-ISD/thingspro-cloud-node-sdk) [![NPM](https://nodei.co/npm/thingspro-cloud-node-sdk.png?mini=true)](https://npmjs.org/package/thingspro-cloud-node-sdk)
 
 > An API wrapper for the [ThingsPro Cloud](https://thingsprocloud.com) API.
 
