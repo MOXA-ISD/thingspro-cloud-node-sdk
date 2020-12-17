@@ -4,11 +4,11 @@ module.exports = gv => {
   const request = gv.requests.dlm
 
   const getByName = async(packageName) => {
-    const { data } = await request.get(
+    const $r = await request.get(
       '/packages',
       { params: { limit: 10, packageName } }
     )
-    return data.data.find((i)=>i.latest)
+    return {...$r.data.data.find((i)=>i.latest), $r}
   }
 
   return {

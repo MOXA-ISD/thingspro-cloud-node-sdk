@@ -4,33 +4,33 @@ module.exports = gv => {
   const request = gv.requests.dlm
 
   const get = async(projectId, limit = 1000, offset = 0) => {
-    const { data } = await request.get(
+    const $r = await request.get(
       `/projects/${projectId}/devices`,
       { params:{ limit, offset } }
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   const getById = async(projectId, deviceId) => {
-    const { data } = await request.get(
+    const $r = await request.get(
       `/projects/${projectId}/devices/${deviceId}`
     )
-    return data
+    return {...$r.data, $r}
   }
 
   const create = async(projectId, modelName, serialNumber, mac) => {
-    const { data } = await request.post(
+    const $r = await request.post(
       '/devices',
       { projectId, modelName, serialNumber, mac }
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   const remove = async(deviceId) => {
-    const { data } = await request.delete(
+    const $r = await request.delete(
       `/devices/${deviceId}`
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   const setHostName = async(deviceId, hostName) => {
@@ -48,10 +48,10 @@ module.exports = gv => {
     )
     const headers = form.getHeaders()
 
-    const { data } = await request.put(
+    const $r = await request.put(
       `/devices/${deviceId}/config`, form, { headers }
     )
-    return data
+    return {...$r.data, $r}
   }
 
   const setTag = async(projectId, deviceId, tagName, colour) => {
@@ -80,8 +80,8 @@ module.exports = gv => {
   }
 
   const cancelAllJobs = async(deviceId) => {
-    const { data } = await request.get(`/devices/${deviceId}/jobs`, { params: { limit: 1000 } })
-    data.data.forEach(async job => {
+    const $r = await request.get(`/devices/${deviceId}/jobs`, { params: { limit: 1000 } })
+    $r.data.data.forEach(async job => {
       await request.post(`/devices/${deviceId}/jobs/${job.jobId}/cancel`)
     })
   }

@@ -4,41 +4,41 @@ module.exports = gv => {
   const request = gv.requests.dsc
 
   const get = async(limit = 1000, offset = 0) => {
-    const { data } = await request.get(
+    const $r = await request.get(
       '/projects',
       { params:{ limit, offset } }
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   const getById = async(projectId) => {
-    const { data } = await request.get(
+    const $r = await request.get(
       `/projects/${projectId}`
     )
-    return data
+    return {...$r.data, $r}
   }
 
   const getByName = async(name) => {
-    const { data } = await request.get(
+    const $r = await request.get(
       '/projects',
       { params:{ name } }
     )
-    return data.data[0]
+    return {...$r.data.data[0], $r}
   }
 
   const create = async(projectName) => {
-    const { data } = await request.post(
+    const $r = await request.post(
       '/projects',
       { name: projectName }
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   const remove = async(projectId) => {
-    const { data } = await request.delete(
+    const $r = await request.delete(
       `/projects/${projectId}`
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   return {

@@ -3,7 +3,7 @@ module.exports = gv => {
   const request = gv.requests.dsc
 
   const create = async(projectId, newProfileName, modelName) => {
-    const { data } = await request.post(
+    const $r = await request.post(
       `/projects/${projectId}/modelProfiles`,
       {
         newProfileName: newProfileName,
@@ -12,14 +12,14 @@ module.exports = gv => {
         }
       }
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   const remove = async(projectId, profileId) => {
-    const { data } = await request.delete(
+    const $r = await request.delete(
       `/projects/${projectId}/modelProfiles/${profileId}`
     )
-    return data.data
+    return {...$r.data.data, $r}
   }
 
   return {
