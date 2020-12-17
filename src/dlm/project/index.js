@@ -8,7 +8,7 @@ module.exports = gv => {
       '/projects',
       { params:{ limit, offset } }
     )
-    return { data:$r.data.data, $r }
+    return { ...$r.data, $r }
   }
 
   const getById = async(projectId) => {
