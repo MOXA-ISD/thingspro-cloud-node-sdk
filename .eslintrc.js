@@ -1,17 +1,21 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
-    'node': true,
-    'mocha': true
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+    mocha: true,
+    jquery: true
   },
-  'extends': 'eslint:recommended',
-  'parserOptions': {
-    'ecmaVersion': 12,
-    'sourceType': 'module'
+  extends: 'eslint:recommended',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module'
   },
-  'rules': {
-    'indent': [
+  eslintIgnore: [
+    '/**/*.min.js',
+  ],
+  rules: {
+    indent: [
       'error',
       2
     ],
@@ -19,11 +23,11 @@ module.exports = {
       'error',
       'unix'
     ],
-    'quotes': [
+    quotes: [
       'error',
       'single'
     ],
-    'semi': [
+    semi: [
       'error',
       'never'
     ],
