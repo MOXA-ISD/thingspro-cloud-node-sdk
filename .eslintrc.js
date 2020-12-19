@@ -11,9 +11,6 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  eslintIgnore: [
-    '/**/*.min.js',
-  ],
   rules: {
     indent: [
       'error',
