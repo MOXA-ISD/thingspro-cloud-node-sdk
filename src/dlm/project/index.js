@@ -34,6 +34,19 @@ module.exports = gv => {
     return { ...$r.data.data, $r }
   }
 
+  const findOrCreate = async(projectName) => {
+    let $r = await request.get(
+      '/projects'
+    )
+    const project = $r.data.data.find(project => project.name === projectName)
+    if (project) { return project }
+    $r = await request.post(
+      '/projects',
+      { name: projectName }
+    )
+    return { ...$r.data.data, $r }
+  }
+
   const remove = async(projectId) => {
     const $r = await request.delete(
       `/projects/${projectId}`
@@ -46,6 +59,7 @@ module.exports = gv => {
     getById,
     getByName,
     create,
+    findOrCreate,
     delete: remove,
     modelProfile: modelProfile(gv)
   }

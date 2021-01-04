@@ -3,7 +3,7 @@ const expect = require('chai').expect
 describe('dlm tag', function() {
   this.retries(5)
   this.timeout(60000)
-  let tpc, cfg, request, random, projectId, tagId, tagName
+  let tpc, cfg, random, projectId, tagId, tagName
 
   before(async function() {
     tpc = require('../../../index')()
@@ -14,7 +14,6 @@ describe('dlm tag', function() {
     const { email, password } = cfg.login
     await tpc.dlm().login(email, password)
 
-    request = tpc.dlm().request
     const project = await tpc.dlm().project.create(random.projectName())
     projectId = project.projectId
     tagName = random.tagName()
