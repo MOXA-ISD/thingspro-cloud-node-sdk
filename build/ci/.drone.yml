@@ -10,7 +10,7 @@ steps:
 - name: restore-cache
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
-    bucket: dlm-drone-ci-cache
+    bucket: cloud-ci-cache
     mount:
     - .cache
     region: ap-northeast-1
@@ -80,7 +80,7 @@ steps:
 - name: rebuild-cache
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
-    bucket: dlm-drone-ci-cache
+    bucket: cloud-ci-cache
     mount:
     - .cache
     rebuild: true

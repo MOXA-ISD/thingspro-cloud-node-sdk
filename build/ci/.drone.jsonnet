@@ -12,7 +12,7 @@ local restore_cache() = {
   },
   settings:{
     restore: true,
-    bucket: "dlm-drone-ci-cache",
+    bucket: "cloud-ci-cache",
     region: "ap-northeast-1",
     mount: [".cache"]
   }
@@ -27,7 +27,7 @@ local rebuild_cache() = {
   },
   settings:{
     rebuild: true,
-    bucket: "dlm-drone-ci-cache",
+    bucket: "cloud-ci-cache",
     region: "ap-northeast-1",
     mount: [".cache"]
   },
