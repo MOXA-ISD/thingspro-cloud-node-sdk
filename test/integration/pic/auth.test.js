@@ -8,7 +8,7 @@ describe('pic auth', function() {
   let tpc, cfg
 
   before(async function() {
-    tpc = require('../../index')()
+    tpc = require('../../../index')()
     cfg = tpc.utils.dotenv('.env')
     tpc.setServerUrl(cfg.url)
   })

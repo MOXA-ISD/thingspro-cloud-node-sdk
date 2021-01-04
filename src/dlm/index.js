@@ -2,22 +2,18 @@ const auth = require('../lib/auth')
 const project = require('./project')
 const device = require('./device')
 const pkg = require('./package')
+const tag = require('./tag')
 
 module.exports = gv => {
-  const lib = {
-    auth: auth(gv, 'dlm'),
-    project: project(gv),
-    device: device(gv),
-    package: pkg(gv)
-  }
   return {
-    login: lib.auth.login,
-    logout: lib.auth.logout,
+    login: auth(gv, 'dlm').login,
+    logout: auth(gv, 'dlm').logout,
     token: gv.sessions.dlm.token,
     request: gv.requests.dlm,
     me: gv.profiles.dlm,
-    project: lib.project,
-    device: lib.device,
-    package: lib.package
+    project: project(gv),
+    device: device(gv),
+    package: pkg(gv),
+    tag: tag(gv)
   }
 }

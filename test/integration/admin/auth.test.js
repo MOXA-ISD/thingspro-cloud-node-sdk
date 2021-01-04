@@ -1,3 +1,4 @@
+
 const expect = require('chai').expect
 
 describe('admin auth', function() {
@@ -6,7 +7,7 @@ describe('admin auth', function() {
   let tpc, cfg
 
   before(async function() {
-    tpc = require('../../index')()
+    tpc = require('../../../index')()
     cfg = tpc.utils.dotenv('.env')
     tpc.setServerUrl(cfg.url)
   })

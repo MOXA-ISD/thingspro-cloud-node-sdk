@@ -4,7 +4,7 @@
   "description": "An API wrapper for the ThingsPro Cloud",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -t 5000 --recursive test/**/*.test.js",
+    "test": "mocha -t 5000 --recursive test/**/**.test.js test/**/**/*.test.js",
     "release": "release-it --npm.skipChecks --config ./build/ci/.release-it.yaml"
   },
   "repository": {
