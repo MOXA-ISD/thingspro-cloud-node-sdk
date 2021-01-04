@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.31...v0.2.0) (2021-01-04)
+
+
+### Features
+
+* add project findOrCreate API ([ad37225](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/ad37225437bc1adfa9d2c87939dc0769c041d859))
+
 ## [0.1.31](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.30...v0.1.31) (2021-01-04)
 
 ## [0.1.30](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.1.29...v0.1.30) (2020-12-19)
