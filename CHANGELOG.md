@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.1...v0.2.2) (2021-01-04)
+
+
+### Bug Fixes
+
+* fix get tag  failed ([5c72d3f](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/5c72d3fe774ec7b65f9fcc45a28d656de8720caf))
+
 ## [0.2.1](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.0...v0.2.1) (2021-01-04)
 
 
