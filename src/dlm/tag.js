@@ -29,7 +29,6 @@ module.exports = gv => {
     let $r = await request.get(
       `/projects/${projectId}/tags`
     )
-    console.log($r)
     if ($r.data.data.length) {
       const tag = $r.data.data.find(tag => tag.tagName === tagName)
       if (tag) { return tag }
