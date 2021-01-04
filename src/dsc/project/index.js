@@ -34,15 +34,15 @@ module.exports = gv => {
     return { ...$r.data.data, $r }
   }
 
-  const findOrCreate = async(projectName) => {
-    let $r = await request.get(
-      '/projects'
-    )
-    const project = $r.data.data.find(project => project.name === projectName)
-    if (project) { return project }
-    $r = await request.post(
+  const findOrCreate = async(name) => {
+    const project = await request.get(
       '/projects',
-      { name: projectName }
+      { params:{ name } }
+    )
+    if (project.data.data[0]) { return project.data.data[0] }
+    const $r = await request.post(
+      '/projects',
+      { name }
     )
     return { ...$r.data.data, $r }
   }
