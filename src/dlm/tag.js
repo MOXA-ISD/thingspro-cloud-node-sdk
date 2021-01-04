@@ -29,8 +29,10 @@ module.exports = gv => {
     let $r = await request.get(
       `/projects/${projectId}/tags`
     )
-    const tag = $r.data.data.find(tag => tag.tagName === tagName)
-    if (tag) { return tag }
+    if ($r.data.data.length) {
+      const tag = $r.data.data.find(tag => tag.tagName === tagName)
+      if (tag) { return tag }
+    }
     $r = await request.post(
       `/projects/${projectId}/tags`,
       { tagName, colour }
