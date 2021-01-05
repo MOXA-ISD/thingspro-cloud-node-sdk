@@ -8,6 +8,9 @@ module.exports = gv => {
       `/projects/${projectId}/devices`,
       { params:{ limit, offset } }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data, $r }
   }
 
@@ -15,6 +18,9 @@ module.exports = gv => {
     const $r = await request.get(
       `/projects/${projectId}/devices/${deviceId}`
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data, $r }
   }
 
@@ -23,6 +29,9 @@ module.exports = gv => {
       '/devices',
       { projectId, modelName, serialNumber, mac }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 
@@ -30,6 +39,9 @@ module.exports = gv => {
     const $r = await request.delete(
       `/devices/${deviceId}`
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 
@@ -51,6 +63,9 @@ module.exports = gv => {
     const $r = await request.put(
       `/devices/${deviceId}/config`, form, { headers }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data, $r }
   }
 

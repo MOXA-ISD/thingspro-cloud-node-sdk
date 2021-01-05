@@ -8,6 +8,9 @@ module.exports = gv => {
       '/projects',
       { params:{ limit, offset } }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data, $r }
   }
 
@@ -15,6 +18,9 @@ module.exports = gv => {
     const $r = await request.get(
       `/projects/${projectId}`
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data, $r }
   }
 
@@ -23,6 +29,9 @@ module.exports = gv => {
       '/projects',
       { params:{ name } }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data[0], $r }
   }
 
@@ -31,6 +40,9 @@ module.exports = gv => {
       '/projects',
       { name: projectName }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 
@@ -44,6 +56,9 @@ module.exports = gv => {
       '/projects',
       { name }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 
@@ -51,6 +66,9 @@ module.exports = gv => {
     const $r = await request.delete(
       `/projects/${projectId}`
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 

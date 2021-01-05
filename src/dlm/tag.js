@@ -7,6 +7,9 @@ module.exports = gv => {
     const $r = await request.get(
       `/projects/${projectId}/tags`
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data, $r }
   }
 
@@ -14,6 +17,9 @@ module.exports = gv => {
     const $r = await request.get(
       `/projects/${projectId}/tags/${tagId}`
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data, $r }
   }
 
@@ -22,6 +28,9 @@ module.exports = gv => {
       `/projects/${projectId}/tags`,
       { tagName, colour }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 
@@ -37,6 +46,9 @@ module.exports = gv => {
       `/projects/${projectId}/tags`,
       { tagName, colour }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 
@@ -44,6 +56,9 @@ module.exports = gv => {
     const $r = await request.delete(
       `/projects/${projectId}/tags/${tagId}`
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data, $r }
   }
 

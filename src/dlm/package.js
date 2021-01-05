@@ -8,6 +8,9 @@ module.exports = gv => {
       '/packages',
       { params: { limit: 10, packageName } }
     )
+    if ($r.status >= 400) {
+      throw new Error(JSON.stringify($r.data))
+    }
     return { ...$r.data.data.find((i)=>i.latest), $r }
   }
 
