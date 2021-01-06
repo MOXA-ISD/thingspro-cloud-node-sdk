@@ -1,9 +1,9 @@
 const faker = require('faker')
 const moment = require('moment')
 
-const companyName = () => `[test] ${faker.company.companyName().slice(0, 23)}`
+const companyName = () => `[test] ${faker.company.companyName().slice(0, 23)} ${faker.random.number(100)}`
 
-const projectName = () => `[test] ${faker.commerce.productName()}`
+const projectName = () => `[test] ${faker.commerce.productName()} ${faker.random.number(100)}`
 
 // modelName
 const all = async(tpc) => {
