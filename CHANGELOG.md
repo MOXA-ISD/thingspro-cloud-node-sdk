@@ -1,3 +1,10 @@
+## [0.2.11](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.10...v0.2.11) (2021-01-06)
+
+
+### Bug Fixes
+
+* fix company name length ([64295ef](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/64295ef8c897a31ee196fa3f93ab72632462da22))
+
 ## [0.2.10](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.8...v0.2.10) (2021-01-06)
 
 ## [0.2.8](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.7...v0.2.8) (2021-01-06)

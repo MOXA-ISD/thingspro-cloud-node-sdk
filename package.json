@@ -1,6 +1,6 @@
 {
   "name": "thingspro-cloud-sdk",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "An API wrapper for the ThingsPro Cloud",
   "main": "index.js",
   "scripts": {
