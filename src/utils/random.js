@@ -32,15 +32,15 @@ const serialNumber = () => `test-${faker.random.number({ min:1000000, max:999999
 
 const mac = () => `0090E8${faker.internet.mac().replace(/:/g, '').substring(6).toUpperCase()}`
 
-const profileName = () => `[test] ${faker.commerce.productName()}`
+const profileName = () => `[test] ${faker.commerce.productName()} ${faker.random.number(1000)}`
 
-const roleName = () => `[test] ${faker.name.jobTitle()}`
+const roleName = () => `[test] ${faker.name.jobTitle()} ${faker.random.number(1000)}`
 
-const tagName = () => faker.hacker.noun()
+const tagName = () => `${faker.hacker.noun()}${faker.random.number(10)}`
 
 const colour = () => faker.internet.color()
 
-const email = () => `${faker.internet.exampleEmail().split('@')[0]}@email.thingspro.dev`
+const email = () => `${faker.internet.exampleEmail().split('@')[0]}${faker.random.number(100)}@email.thingspro.dev`
 
 const future = () => {
   const minutes = [ 0, 15, 30, 45 ]
@@ -54,11 +54,11 @@ const future = () => {
 
 const description = () => faker.lorem.sentence()
 
-const snapshotName = () => faker.lorem.word()
+const snapshotName = () => `${faker.lorem.word()}${faker.random.number(100)}`
 
 const password = () => `!12${faker.internet.password()}`
 
-const hostname = () => faker.internet.domainWord()
+const hostname = () => `${faker.internet.domainWord()}${faker.random.number(10)}`
 
 module.exports = {
   companyName,
