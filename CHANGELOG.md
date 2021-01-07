@@ -1,3 +1,5 @@
+## [0.2.12](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.11...v0.2.12) (2021-01-07)
+
 ## [0.2.11](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.10...v0.2.11) (2021-01-06)
 
 
