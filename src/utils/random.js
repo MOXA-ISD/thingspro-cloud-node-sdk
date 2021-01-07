@@ -3,7 +3,7 @@ const moment = require('moment')
 
 const companyName = () => `[test] ${faker.company.companyName().slice(0, 19)} ${faker.random.number(100)}`
 
-const projectName = () => `[test] ${faker.commerce.productName()} ${faker.random.number(100)}`
+const projectName = () => `[test] ${faker.commerce.productName()} ${faker.random.number(1000)}`
 
 // modelName
 const all = async(tpc) => {
@@ -30,13 +30,13 @@ const dlm = () => {
 
 const serialNumber = () => `test-${faker.random.number({ min:1000000, max:9999999 })}`
 
-const mac = () => `0090E8${faker.internet.mac().replace(/:/g, '').substring(6).toUpperCase()}`
+const mac = () => `${faker.internet.mac().replace(/:/g, '').toUpperCase()}`
 
 const profileName = () => `[test] ${faker.commerce.productName()} ${faker.random.number(1000)}`
 
 const roleName = () => `[test] ${faker.name.jobTitle()} ${faker.random.number(1000)}`
 
-const tagName = () => `${faker.hacker.noun()}${faker.random.number(10)}`
+const tagName = () => `${faker.hacker.noun()}${faker.random.number(100)}`
 
 const colour = () => faker.internet.color()
 
