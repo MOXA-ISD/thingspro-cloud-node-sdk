@@ -29,12 +29,7 @@ ifeq ($(ENV), prod)
 endif
 endif
 
-TOKEN ?= configs/secrets/ci.token.env
-ifneq ("$(wildcard $(TOKEN))","")
-	include $(TOKEN)
-	export $(shell sed 's/=.*//' $(TOKEN))
-endif
-
+export TPC_SCRIPTS = node_modules/thingspro-cloud-devops-tools/scripts
 export YARN_CACHE_FOLDER = $(PWD)/.cache/yarn
 
 j: jsonnet-convert
@@ -77,8 +72,8 @@ release:
 	git config push.default current
 	$$(npm bin)/release-it --npm.skipChecks --config ./build/ci/.release-it.yaml --ci
 
-download-client-certs:
-	@./scripts/download-client-certs
+download-certs:
+	@./$(TPC_SCRIPTS)/cert/download health-check
 
 test-pipe:
 	drone exec --trusted --pipeline test-pipe build/ci/.drone.yml
