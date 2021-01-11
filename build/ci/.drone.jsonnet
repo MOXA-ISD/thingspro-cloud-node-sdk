@@ -47,8 +47,8 @@ local setup_deps_node() = {
   ]
 };
 
-local download_client_certs() = {
-  name: "download-client-certs",
+local download_certs() = {
+  name: "download-certs",
   image: image("k8s-v1"),
   environment: {
     AWS_DEFAULT_REGION: "ap-northeast-1",
@@ -56,7 +56,7 @@ local download_client_certs() = {
     AWS_SECRET_ACCESS_KEY: { from_secret: "AWS_DEV_KEY" },
   },
   commands: [
-    "make download-client-certs",
+    "make download-certs",
   ],
   depends_on: [
     "restore-cache"
@@ -79,7 +79,7 @@ local integration_test() = {
   ],
   depends_on: [
     "setup-deps-node",
-    "download-client-certs"
+    "download-certs"
   ]
 };
 
@@ -110,7 +110,7 @@ local main_pipeline() = {
   steps: [
     restore_cache(),
     setup_deps_node(),
-    download_client_certs(),
+    download_certs(),
     integration_test(),
     release_it(),
     rebuild_cache(),
