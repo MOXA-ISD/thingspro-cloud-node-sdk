@@ -59,7 +59,7 @@ local download_certs() = {
     "make download-certs",
   ],
   depends_on: [
-    "restore-cache"
+    "setup-deps-node"
   ]
 };
 
