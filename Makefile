@@ -73,7 +73,7 @@ release:
 	$$(npm bin)/release-it --npm.skipChecks --config ./build/ci/.release-it.yaml --ci
 
 download-certs:
-	@./$(TPC_SCRIPTS)/cert/download health-check
+	@./$(TPC_SCRIPTS)/download/cert health-check
 
 test-pipe:
 	drone exec --trusted --pipeline test-pipe build/ci/.drone.yml
