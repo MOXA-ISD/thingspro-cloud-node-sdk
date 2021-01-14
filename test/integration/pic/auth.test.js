@@ -14,8 +14,8 @@ describe('pic auth', function() {
   })
 
   it('should access pic api with client cert', async function() {
-    const cert = fs.readFileSync('./configs/certs/health-check.crt', { encoding: 'utf8' })
-    const key = fs.readFileSync('./configs/certs/health-check.key', { encoding: 'utf8' })
+    const cert = fs.readFileSync('./configs/certs/pic-health-check/cert.pem', { encoding: 'utf8' })
+    const key = fs.readFileSync('./configs/certs/pic-health-check/privkey.pem', { encoding: 'utf8' })
     tpc.pic().setCert(cert, key)
     const { status } = await tpc.pic().request.get('/health')
     expect(status).to.equal(200)

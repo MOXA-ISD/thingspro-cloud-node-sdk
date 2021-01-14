@@ -3885,10 +3885,10 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-thingspro-cloud-devops-tools@^0.2.20:
-  version "0.2.20"
-  resolved "https://registry.yarnpkg.com/thingspro-cloud-devops-tools/-/thingspro-cloud-devops-tools-0.2.20.tgz#b9ceefc1fbc280a13b082bd9bea558ad8845b712"
-  integrity sha512-/nL+YQ++W3D3gi+4o0oMldO+EuJxv+sPsEg3Szjg79dHtX3/3rWEtg5GEBsLrCw+3wIQO55CeAF+GEq/ObT25Q==
+thingspro-cloud-devops-tools@^0.2.26:
+  version "0.2.26"
+  resolved "https://registry.yarnpkg.com/thingspro-cloud-devops-tools/-/thingspro-cloud-devops-tools-0.2.26.tgz#22e85e227ed148a7c51c80a7a3576689f24bbb32"
+  integrity sha512-Lk5Q8zuazAOIN9mXXcJLookO0lO7+6BoerrSxU6mp02nAB+A3FOuFj/K876rk0erafO8ayCwtBArZQvJ1uwbUA==
 
 through2@^2.0.0, through2@^2.0.2:
   version "2.0.5"
