@@ -12,6 +12,11 @@ const utils = {
   mocha: {
     hooks: require('./src/utils/mocha/hooks'),
     device: require('./src/utils/mocha/device')
+  },
+  aws: {
+    iot: require('./src/utils/aws/iot'),
+    sqs: require('./src/utils/aws/sqs'),
+    ssm: require('./src/utils/aws/ssm')
   }
 }
 
