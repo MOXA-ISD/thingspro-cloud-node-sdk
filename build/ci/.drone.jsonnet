@@ -6,14 +6,11 @@ local image(tag) = aws_ecr_repository + ":" + tag;
 local restore_cache() = {
   name: "restore-cache",
   image: image("drone-cache"),
-  environment: {
-    AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
-    AWS_SECRET_ACCESS_KEY: { from_secret: "AWS_DEV_KEY" },
-  },
   settings:{
     restore: true,
-    bucket: "cloud-ci-cache",
+    bucket: "mxswdc2",
     region: "ap-northeast-1",
+    remote_root: "thingspro-cloud/ci-cache/thingspro-cloud-node-sdk",
     mount: [".cache"]
   }
 };
@@ -21,19 +18,14 @@ local restore_cache() = {
 local rebuild_cache() = {
   name: "rebuild-cache",
   image: image("drone-cache"),
-  environment: {
-    AWS_ACCESS_KEY_ID: { from_secret: "AWS_DEV_KEY_ID" },
-    AWS_SECRET_ACCESS_KEY: { from_secret: "AWS_DEV_KEY" },
-  },
   settings:{
     rebuild: true,
-    bucket: "cloud-ci-cache",
+    bucket: "mxswdc2",
     region: "ap-northeast-1",
+    remote_root: "thingspro-cloud/ci-cache/thingspro-cloud-node-sdk",
     mount: [".cache"]
   },
-  depends_on: [
-    "setup-deps-node"
-  ]
+  depends_on: ["setup-deps-node"]
 };
 
 local setup_deps_node() = {

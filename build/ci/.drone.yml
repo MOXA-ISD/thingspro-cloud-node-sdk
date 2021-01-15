@@ -10,16 +10,12 @@ steps:
 - name: restore-cache
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
-    bucket: cloud-ci-cache
+    bucket: mxswdc2
     mount:
     - .cache
     region: ap-northeast-1
+    remote_root: thingspro-cloud/ci-cache/thingspro-cloud-node-sdk
     restore: true
-  environment:
-    AWS_ACCESS_KEY_ID:
-      from_secret: AWS_DEV_KEY_ID
-    AWS_SECRET_ACCESS_KEY:
-      from_secret: AWS_DEV_KEY
 
 - name: setup-deps-node
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:node-12-v1
@@ -80,16 +76,12 @@ steps:
 - name: rebuild-cache
   image: 164073796161.dkr.ecr.ap-northeast-1.amazonaws.com/thingspro-cloud/drone-ci-images:drone-cache
   settings:
-    bucket: cloud-ci-cache
+    bucket: mxswdc2
     mount:
     - .cache
     rebuild: true
     region: ap-northeast-1
-  environment:
-    AWS_ACCESS_KEY_ID:
-      from_secret: AWS_DEV_KEY_ID
-    AWS_SECRET_ACCESS_KEY:
-      from_secret: AWS_DEV_KEY
+    remote_root: thingspro-cloud/ci-cache/thingspro-cloud-node-sdk
   depends_on:
   - setup-deps-node
 
