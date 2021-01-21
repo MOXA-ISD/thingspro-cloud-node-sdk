@@ -6,8 +6,8 @@ const companyName = () => `[test] ${faker.company.companyName().slice(0, 19)} ${
 const projectName = () => `[test] ${faker.commerce.productName()} ${faker.random.number(1000)}`
 
 // modelName
-const all = async(tpc) => {
-  const { data } = await tpc.dlm().request.get('/modelProfiles')
+const all = async(request) => {
+  const { data } = await request.get('/modelProfiles')
   const models = data.data
   return models[Math.floor(Math.random() * models.length)]['modelName']
 }
