@@ -1,3 +1,10 @@
+## [0.2.20](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.19...v0.2.20) (2021-01-21)
+
+
+### Bug Fixes
+
+* fix get random modelName failed ([71e1316](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/commit/71e1316af7dbb3c90b6930e79160c6fd5cae8ff4))
+
 ## [0.2.19](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.18...v0.2.19) (2021-01-15)
 
 ## [0.2.18](https://github.com/MOXA-ISD/thingspro-cloud-node-sdk/compare/v0.2.17...v0.2.18) (2021-01-15)
